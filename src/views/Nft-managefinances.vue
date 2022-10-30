@@ -51,7 +51,7 @@ onMounted(()=>{
 <style scoped lang="less">
 .nft_manager_warp{
   color: #fff;
-  background: url(@/assets/img/efootball_bg_cl2.jpeg) repeat-y 0 0/100% auto, #000096;
+  background: url('@/assets/img/efootball_bg_cl2.jpeg') repeat-y 0 0/100% auto, #000096;
 }
 
 .nft_manager_tlt{

@@ -243,7 +243,7 @@ const refLinks = computed(() => {
 }
 .home_information{
   padding: 30px 0;
-  background: url(@/assets/img/common/efootball_bg_cl2.jpeg) repeat-y 0 0/100% auto, #000096;
+  background: url('@/assets/img/efootball_bg_cl2.jpeg') repeat-y 0 0/100% auto, #000096;
   h2{
     font-family: eFootball Stencil;
     font-style: normal;
@@ -353,7 +353,7 @@ const refLinks = computed(() => {
 }
 .home_bottom_warp{
   color: #fff;
-  background: url(@/assets/img/efootball_bg_cl2.jpeg) repeat-y 0 0/100% auto, #000096;
+  background: url('@/assets/img/efootball_bg_cl2.jpeg') repeat-y 0 0/100% auto, #000096;
 }
 .home_trailer{
   h2{
