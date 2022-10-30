@@ -1,0 +1,106 @@
+@import './base.css';
+
+@font-face {
+  font-family: 'DIN';
+  src: url('https://resources.fx696.com/web20/font/DIN-MEDIUM_0.OTF');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'eFootball Stencil';
+  src: url('@/assets/font/eFootballStencil-Regular.woff');
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  color: #333333;
+  font-family: "PingFang SC", "Microsoft YaHei";
+  animation: fade_in 1s ease 0s 1 none;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #000096;
+  background: url(./img/efootball_bg.jpeg) repeat-y 0 0/100% auto, #000096;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+body {
+  background: #fff;
+}
+
+ol,
+ul {
+  list-style: none
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #3d3d3d;
+}
+/* // 正常情况下滑块的样式 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-button {
+  width: 5px;
+  height: 0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: 0 0;
+}
+::-webkit-scrollbar-thumb {
+  background: #fff0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+/* // 鼠标悬浮在该类指向的控件上时滑块的样式 */
+:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* flex系列 */
+.flex {
+  display: flex;
+}
+.flex1 {
+  flex: 1;
+}
+.flex-center {
+  display: flex;align-items: center;
+}
+.flex-sides {
+  display: flex;align-items: center;justify-content: space-between;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
