@@ -2,11 +2,13 @@
 import {ref, onMounted} from 'vue'
 import { ElMessage } from 'element-plus'
 import Nav from '../components/Nav.vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 onMounted(()=>{
 })
 const centerDialogVisible = ref(false)
 const getRews = ()=>{
-  ElMessage('暂未开放.')
+  ElMessage(t('noOpen'))
 }
 const joinFunc = ()=>{
   centerDialogVisible.value = true
@@ -23,22 +25,22 @@ const joinFunc = ()=>{
       <div class="nft_mg_banner">
         <img src="@/assets/img/promo_zh_campaign.png" alt="">
       </div>
-      <div class="info_title">NFT 理财</div>
+      <div class="info_title">{{ $t('NFTinvestment') }}</div>
       <div class="_rews_warp">
         <div class="_my_rews_txt">
-          可领取(USDX)
+          {{ $t('available') }}(USDX)
           <span>0.00000000</span>
         </div>
         <div class="_my_rews_btn_warp">
-          <div class="_my_rews_btn" @click="getRews">领取奖励</div>
-          <div class="_my_rews_btn" @click="joinFunc">质押</div>
+          <div class="_my_rews_btn" @click="getRews">{{ $t('receiveAward') }}</div>
+          <div class="_my_rews_btn" @click="joinFunc">{{ $t('pledge') }}</div>
         </div>
       </div>
       <div class="_my_nft_box">
         <div class="nft_box_item">
           <img src="@/assets/img/box.png" alt="">
           <div class="nft_box_item_txt">
-            <div>我的NFT数量</div>
+            <div>{{ $t('myNFTsNumber') }}</div>
             <span>0</span>
           </div>
 
@@ -46,7 +48,7 @@ const joinFunc = ()=>{
         <div class="nft_box_item">
           <img src="@/assets/img/clock.png" alt="">
           <div class="nft_box_item_txt">
-            <div>已质押</div>
+            <div>{{ $t('pledged') }}</div>
             <span>0</span>
           </div>
         </div>
@@ -62,9 +64,9 @@ const joinFunc = ()=>{
       align-center
       :close-on-click-modal="false"
     >
-      <div class="nft_number">数量：0</div>
-      <div class="nft_select">请选择NFT</div>
-      <div class="nft_approve">授权NFT</div>
+      <div class="nft_number">{{ $t('Number') }}：0</div>
+      <div class="nft_select">{{ $t('PleaeSelectNFT') }}</div>
+      <div class="nft_approve">{{ $t('ApproveNFT') }}</div>
     </el-dialog>
   </div>
 </template>

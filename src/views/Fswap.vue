@@ -2,11 +2,13 @@
 import {ref, onMounted} from 'vue'
 import { ElMessage } from 'element-plus'
 import Nav from '../components/Nav.vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 onMounted(()=>{
 })
 const centerDialogVisible = ref(false)
 const getRews = ()=>{
-  ElMessage('暂未开放.')
+  ElMessage(t('noOpen'))
 }
 const joinFunc = ()=>{
   centerDialogVisible.value = true
@@ -26,7 +28,7 @@ const joinFunc = ()=>{
       <div class="info_title">Fswap</div>
       <div class="_swap_page">
         <div class="_swap_page_title">
-          兑换
+          {{ $t('exchange') }}
         </div>
         <div>
           <div class="_swap_top_box swap_item">
@@ -39,7 +41,7 @@ const joinFunc = ()=>{
                 </div>
               </div>
               <div class="swap_input_btm">
-                余额：0 <span class="max_btn">MAX</span>
+                {{ $t('balance') }}：0 <span class="max_btn">MAX</span>
               </div>
             </div>
           </div>
@@ -59,11 +61,11 @@ const joinFunc = ()=>{
               </div>
             </div>
             <div class="swap_input_btm">
-              余额：0 <span class="max_btn">MAX</span>
+              {{ $t('balance') }}：0 <span class="max_btn">MAX</span>
             </div>
           </div>
         </div>
-        <div class="swap_btn">兑换</div>
+        <div class="swap_btn">{{ $t('swap') }}</div>
       </div>
     </div>
 

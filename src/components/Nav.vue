@@ -3,57 +3,19 @@ import {ref, onMounted} from 'vue'
 import { ElMessage } from 'element-plus'
 import { Menu, ArrowDown } from '@element-plus/icons-vue'
 import 'element-plus/theme-chalk/display.css'
-const navData = [
-  {
-    name: '主页',
-    route: '/'
-  },
-  {
-    name: 'NFT',
-    route: '/',
-    children: [
-      {
-        name: 'NFT 理财',
-        type: 'yes',
-        route: '/nft-managefinances',
-      },
-      {
-        name: 'NFT 挖矿',
-        type: 'no',
-        route: '/',
-      },
-      {
-        name: 'NFT 市场',
-        type: 'no',
-        route: '/',
-      },
-    ]
-  },
-  {
-    name: 'FSWAP',
-    route: '/fswap'
-  },
-  {
-    name: '我的收藏',
-    route: '/my-nfts'
-  },
-  {
-    name: '比赛',
-    route: '/Schedule'
-  },
-  {
-    name: '暂未开放',
-    route: '/'
-  },
-]
+import { useI18n } from 'vue-i18n'
+const { t, locale } = useI18n()
 let cSelectShow = ref(false)
 const drawer = ref(false)
 onMounted(()=>{
 })
 const shows = ()=>{
 }
-const noOpen = (t)=>{
-  ElMessage('暂未开放.')
+const noOpen = ()=>{
+  ElMessage(t('noOpen'))
+}
+const changeLang = (c)=>{
+  locale.value = c
 }
 </script>
 
@@ -64,7 +26,7 @@ const noOpen = (t)=>{
     </div>
     <div class="global_nav">
       <router-link class="nav_item" to="/">
-        主页
+        {{ $t('home') }}
       </router-link>
       <a class="nav_item _children" href="javascript:;">
         <el-dropdown>
@@ -74,13 +36,13 @@ const noOpen = (t)=>{
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>
-                <router-link to="/nft-managefinances">NFT 理财</router-link>
+                <router-link to="/nft-managefinances">{{ $t('NFTinvestment') }}</router-link>
               </el-dropdown-item>
               <el-dropdown-item>
-                <a href="javascript:;" @click="noOpen()">NFT 挖矿</a>
+                <a href="javascript:;" @click="noOpen()">{{ $t('NFTmining') }}</a>
               </el-dropdown-item>
               <el-dropdown-item>
-                <a href="javascript:;" @click="noOpen()">NFT 市场</a>
+                <a href="javascript:;" @click="noOpen()">{{ $t('NFTmarket') }}</a>
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -90,32 +52,66 @@ const noOpen = (t)=>{
         FSWAP
       </router-link>
       <router-link class="nav_item" to="/my-nfts">
-        我的收藏
+        {{ $t('myCollection') }}
       </router-link>
       <router-link class="nav_item" to="/Schedule">
-        比赛
+        {{ $t('contest') }}
       </router-link>
       <a class="nav_item" href="javascript:;">
-        暂未开放
+        {{ $t('noOpen') }}
       </a>
-      <a class="nav_item" href="#">语言</a>
+      <div class="nav_item _children">
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            Language
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="changeLang('cn')">
+                <a href="javascript:;">简体中文</a>
+              </el-dropdown-item>
+              <el-dropdown-item @click="changeLang('en')">
+                <a href="javascript:;">English</a>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </div>
     <div class="m_global_nav">
       <el-button circle :icon="Menu" @click="drawer = true">
       </el-button>
       <el-drawer v-model="drawer" :with-header="false" size="50%">
         <div class="m_nav_warp">
-          <a class="m_nav_item" v-for="(item) in navData" :key="item.name" href="#" :class="[item.children ? '_children' : '']">
-            <el-collapse v-if="item.children" v-model="activeNames" @change="handleChange">
-              <el-collapse-item :title="item.name" name="1">
-                <div v-for="(citem) in item.children" :key="citem.name">
-                  {{ citem.name  }}
-                </div>
+          <router-link class="m_nav_item" to="/">
+            {{ $t('home') }}
+          </router-link>
+          <a class="m_nav_item" href="javascript:;">
+            <el-collapse>
+              <el-collapse-item title="NFT" name="1">
+                <router-link to="/nft-managefinances"> {{ $t('NFTinvestment') }}</router-link>
+                <div @click="noOpen()"> {{ $t('NFTmining') }}</div>
+                <div @click="noOpen()"> {{ $t('NFTmarket') }}</div>
               </el-collapse-item>
             </el-collapse>
-            <template v-else>{{ item.name }}</template>
           </a>
-          <a class="m_nav_item" href="#">语言</a>
+          <router-link class="m_nav_item" to="/fswap">
+            FSWAP
+          </router-link>
+          <router-link class="m_nav_item" to="/my-nfts">
+            {{ $t('myCollection') }}
+          </router-link>
+          <router-link class="m_nav_item" to="/Schedule">
+            {{ $t('contest') }}
+          </router-link>
+          <div class="m_nav_item">
+            <el-collapse>
+              <el-collapse-item title="Language" name="1">
+                <div @click="changeLang('cn')">简体中文</div>
+                <div @click="changeLang('en')">English</div>
+              </el-collapse-item>
+            </el-collapse>
+          </div>
         </div>
       </el-drawer>
     </div>
@@ -186,6 +182,7 @@ const noOpen = (t)=>{
   right: 20px;
 }
 .nav_item{
+  cursor: pointer;
   text-align: center;
   border-radius: 100vh;
   margin: 2px;

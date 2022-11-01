@@ -6,7 +6,7 @@ onMounted(()=>{
 })
 const centerDialogVisible = ref(false)
 const getRews = ()=>{
-  ElMessage('暂未开放.')
+  ElMessage($t('noOpen'))
 }
 const joinFunc = ()=>{
   centerDialogVisible.value = true
