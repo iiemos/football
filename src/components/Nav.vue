@@ -14,8 +14,13 @@ const shows = ()=>{
 const noOpen = ()=>{
   ElMessage(t('noOpen'))
 }
-const changeLang = (c)=>{
-  locale.value = c
+const currentLang = ref('en')
+const currentLangText = ref('简体中文')
+
+const changeLang = ()=>{
+  currentLang.value = currentLang.value == 'en' ? 'cn' : 'en'
+  currentLangText.value = currentLang.value == 'en' ? '简体中文' : 'English'
+  locale.value = currentLang.value
 }
 </script>
 
@@ -60,22 +65,8 @@ const changeLang = (c)=>{
       <a class="nav_item" href="javascript:;">
         {{ $t('noOpen') }}
       </a>
-      <div class="nav_item _children">
-        <el-dropdown>
-          <span class="el-dropdown-link">
-            Language
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item @click="changeLang('cn')">
-                <a href="javascript:;">简体中文</a>
-              </el-dropdown-item>
-              <el-dropdown-item @click="changeLang('en')">
-                <a href="javascript:;">English</a>
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
+      <div class="nav_item" @click="changeLang()">
+        {{ currentLangText }}
       </div>
     </div>
     <div class="m_global_nav">
@@ -104,13 +95,8 @@ const changeLang = (c)=>{
           <router-link class="m_nav_item" to="/Schedule">
             {{ $t('contest') }}
           </router-link>
-          <div class="m_nav_item">
-            <el-collapse>
-              <el-collapse-item title="Language" name="1">
-                <div @click="changeLang('cn')">简体中文</div>
-                <div @click="changeLang('en')">English</div>
-              </el-collapse-item>
-            </el-collapse>
+          <div class="m_nav_item" @click="changeLang()">
+            {{ currentLangText }}
           </div>
         </div>
       </el-drawer>
