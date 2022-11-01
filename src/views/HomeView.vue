@@ -77,10 +77,10 @@ const refLinks = computed(() => {
     <div class="home_information">
       <h2>INFO</h2>
       <div class="Invitation_link">
-        <span class="invitation_txt">邀请链接：</span>
+        <span class="invitation_txt">{{ $t('invitation') }}：</span>
         <div class="invitation_warp">
           <span class="invitation_input">{{ refLinks }}</span>
-          <el-button color="#626aef" :icon="CopyDocument" plain size="large" type="primary" @click="copyLink">Copy</el-button>
+          <el-button color="#626aef" :icon="CopyDocument" plain size="large" type="primary" @click="copyLink">{{ $t('copy') }}</el-button>
         </div>
 
       </div>
@@ -89,29 +89,34 @@ const refLinks = computed(() => {
         <el-row :gutter="12">
           <el-col :span="12">
             <el-card class="box-card">
-              直推人数：<span>10</span>
+              {{ $t('invitPeople') }}：<span>10</span>
             </el-card>
           </el-col>
           <el-col :span="12 ">
             <el-card class="box-card">
-              直推数量：<span>100</span>
+              {{ $t('invitNumber') }}：<span>100</span>
             </el-card>
           </el-col>
         </el-row>
       </div>
     </div>
     <div class="home_introduction">
-      <h3>新赛季eFootball™</h3>
+      <h3>{{ $t('newSeason') }}</h3>
       <p>
-      “我们希望为全球球迷带来新的足球游戏体验，展现前所未有的真实性。”<br><br>
-      这一直是我们的宗旨，因此我们继续致力收集真实玩家反馈，并基于反馈继续改善和推出新特色，让更多球迷能够在游戏中找到乐趣。<br>
-      随着现实世界迈入新赛季，eFootball™也将从2022迈入2023。<br>
-      无论是开幕战表现杰出的球员，还是各大俱乐部的新面貌，我们将继续为你带来更多丰富的内容，让你在新赛季依旧能够享受足球带来的激情和快乐！<br>
-      快来eFootball™ 2023体验酣畅淋漓的“真实足球”！            </p>
+        {{ $t('homeP1') }}
+        <br><br>
+        {{ $t('homeP2') }}
+        <br>
+        {{ $t('homeP3') }}
+        <br>
+        {{ $t('homeP4') }}
+        <br>
+        {{ $t('homeP5') }}
+      </p>
     </div>
     <div class="home_bottom_warp">
       <div class="home_trailer">
-        <h2>TRAILER</h2>
+        <h2>{{ $t('trailer') }}</h2>
         <el-carousel :interval="5000" arrow="always">
           <el-carousel-item>
             <img src="@/assets/img/maxresdefault.jpeg" alt="">
@@ -137,21 +142,25 @@ const refLinks = computed(() => {
         </el-carousel>
       </div>
       <div class="cotents_detail">
-        <h2>如何充分享受eFootball™ World</h2>
+        <h2>{{ $t('homeTltle2') }}</h2>
         <p>
-          eFootball™ World是eFootball™体验的核心。在这里，你可以使用球坛最顶尖的球队进行比赛，并通过签下和培养自己喜欢的球员来打造属于你的梦之队。当你准备好后，到最大的舞台和最激动人心的赛事中，与来自世界各地的对手一较高下吧。
+          {{ $t('homeTltle2text') }}
         </p>
       </div>
       <div class="btn_area">
-        <div class="move_btn">Move</div>
+        <div class="move_btn">{{ $t('move') }}</div>
       </div>
       <div class="banner_area">
-        <h2>eFootball™ International Cup</h2>
+        <h2>{{ $t('homeTltle3') }}</h2>
         <p>
-          “eFootball™ International Cup”是一项以国家/地区为单位的竞赛，所有玩家为追求国家荣耀而战。<br>
-          在游戏内报名可获奖励！<br>
-          此外，所有玩家将可瓜分总共10亿枚eFootball™金币，玩家可获得的金币数量将由其国家/地区在每个类别中的排名决定。<br>
-          代表你自己的国家/地区参赛，并打入进球或夺取胜利，从而做出自己的贡献！<br>
+          {{ $t('homeTltle3text1') }}
+          <br>
+          {{ $t('homeTltle3text2') }}
+          <br>
+          {{ $t('homeTltle3text3') }}
+          <br>
+          {{ $t('homeTltle3text4') }}
+          <br>
         </p>
         <div class="campaign_link">
           <img src="@/assets/img/intl_cup_top_pc.jpeg">
