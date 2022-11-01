@@ -22,6 +22,21 @@ const router = createRouter({
       name: 'nft-managefinances',
       component: () => import('../views/Nft-managefinances.vue')
     },
+    {
+      path: '/fswap',
+      name: 'fswap',
+      component: () => import('../views/Fswap.vue')
+    },
+    {
+      path: '/my-nfts',
+      name: 'my-nfts',
+      component: () => import('../views/My-nfts.vue')
+    },
+    {
+      path: '/Schedule',
+      name: 'Schedule',
+      component: () => import('../views/Schedule.vue')
+    },
   ]
 })
 

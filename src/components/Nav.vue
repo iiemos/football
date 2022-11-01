@@ -31,15 +31,15 @@ const navData = [
   },
   {
     name: 'FSWAP',
-    route: '/'
+    route: '/fswap'
   },
   {
     name: '我的收藏',
-    route: '/'
+    route: '/my-nfts'
   },
   {
     name: '比赛',
-    route: '/'
+    route: '/Schedule'
   },
   {
     name: '暂未开放',
@@ -52,8 +52,7 @@ onMounted(()=>{
 })
 const shows = ()=>{
 }
-const routerClick = (t)=>{
-  console.log('t',t)
+const noOpen = (t)=>{
   ElMessage('暂未开放.')
 }
 </script>
@@ -64,18 +63,40 @@ const routerClick = (t)=>{
       <img src="@/assets/ball_logo.svg" alt="">
     </div>
     <div class="global_nav">
-      <a class="nav_item" v-for="(item) in navData" :key="item.name" :href="item.route" :class="[item.children ? '_children' : '']">
-        <el-dropdown  v-if="item.children">
+      <router-link class="nav_item" to="/">
+        主页
+      </router-link>
+      <a class="nav_item _children" href="javascript:;">
+        <el-dropdown>
           <span class="el-dropdown-link">
-            {{ item.name }}
+            NFT
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item v-for="(citem) in item.children" :key="citem.name"><a :href="citem.type == 'no' ? 'javascript:;' : citem.route" @click="routerClick(citem.type)">{{ citem.name  }}</a></el-dropdown-item>
+              <el-dropdown-item>
+                <router-link to="/nft-managefinances">NFT 理财</router-link>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <a href="javascript:;" @click="noOpen()">NFT 挖矿</a>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <a href="javascript:;" @click="noOpen()">NFT 市场</a>
+              </el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
-        <template v-else>{{ item.name }}</template>
+      </a>
+      <router-link class="nav_item" to="/fswap">
+        FSWAP
+      </router-link>
+      <router-link class="nav_item" to="/my-nfts">
+        我的收藏
+      </router-link>
+      <router-link class="nav_item" to="/Schedule">
+        比赛
+      </router-link>
+      <a class="nav_item" href="javascript:;">
+        暂未开放
       </a>
       <a class="nav_item" href="#">语言</a>
     </div>

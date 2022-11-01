@@ -1,8 +1,16 @@
 <script setup>
 import {ref, onMounted} from 'vue'
+import { ElMessage } from 'element-plus'
 import Nav from '../components/Nav.vue'
 onMounted(()=>{
 })
+const centerDialogVisible = ref(false)
+const getRews = ()=>{
+  ElMessage('暂未开放.')
+}
+const joinFunc = ()=>{
+  centerDialogVisible.value = true
+}
 </script>
 
 <template>
@@ -22,8 +30,8 @@ onMounted(()=>{
           <span>0.00000000</span>
         </div>
         <div class="_my_rews_btn_warp">
-          <div class="_my_rews_btn">领取奖励</div>
-          <div class="_my_rews_btn">质押</div>
+          <div class="_my_rews_btn" @click="getRews">领取奖励</div>
+          <div class="_my_rews_btn" @click="joinFunc">质押</div>
         </div>
       </div>
       <div class="_my_nft_box">
@@ -46,6 +54,18 @@ onMounted(()=>{
       <div class="info_text">
       </div>
     </div>
+    <el-dialog
+      v-model="centerDialogVisible"
+      title="NFT"
+      width="30%"
+      class="nft_dialog"
+      align-center
+      :close-on-click-modal="false"
+    >
+      <div class="nft_number">数量：0</div>
+      <div class="nft_select">请选择NFT</div>
+      <div class="nft_approve">授权NFT</div>
+    </el-dialog>
   </div>
 </template>
 <style scoped lang="less">
@@ -53,7 +73,9 @@ onMounted(()=>{
   color: #fff;
   background: url('@/assets/img/efootball_bg_cl2.jpeg') repeat-y 0 0/100% auto, #000096;
 }
-
+.info_title{
+  font-family: eFootball Stencil;
+}
 .nft_manager_tlt{
   width: 100%;
   text-align: center;
@@ -151,6 +173,55 @@ onMounted(()=>{
   margin-left: 20px;
   span{
     font-size: 30px;
+  }
+}
+/deep/.nft_dialog{
+  border-radius: 10px;
+  background-color:#fff;
+  .el-dialog__title{
+    font-size: 35px;
+    color: #4d00ff;
+    font-family: eFootball Stencil;
+  }
+}
+
+.nft_number{
+  font-size: 16px;
+}
+.nft_select{
+  margin-top: 20px;
+  height: 100px;
+  cursor: pointer;
+  color: #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  border-radius: 4px;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 0px 0px 1px #3D55CC;
+}
+.nft_approve{
+  margin-top: 20px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+  background: linear-gradient(270deg,#5028f3,#7756ff,#43a9ff);
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 0px 0px 1px #3D55CC;
+}
+@media (max-width: 868px) {
+  /deep/.nft_dialog{
+    width: 94%;
+  }
+  ._my_nft_box{
+    flex-direction: column;
+    .nft_box_item{
+      width: 100%;
+    }
   }
 }
 </style>
