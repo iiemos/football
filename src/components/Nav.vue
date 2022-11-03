@@ -72,7 +72,7 @@ const changeLang = ()=>{
     <div class="m_global_nav">
       <el-button circle :icon="Menu" @click="drawer = true">
       </el-button>
-      <el-drawer v-model="drawer" :with-header="false" size="50%">
+      <el-drawer v-model="drawer" :with-header="false" custom-class="m_nav_drawer" size="50%">
         <div class="m_nav_warp">
           <router-link class="m_nav_item" to="/">
             {{ $t('home') }}
@@ -209,12 +209,15 @@ const changeLang = ()=>{
   }
 
 }
+/deep/.m_nav_drawer{
+  background: #0600fe;
+}
 .m_nav_warp{
   display: flex;
   flex-direction: column;
 }
 .m_nav_item{
-  color: #666;
+  color: #fff;
   padding: 0.35rem 1rem 0.35rem 0px;
 }
 .m-el-dropdown-link{
@@ -225,13 +228,19 @@ const changeLang = ()=>{
 }
 /deep/.el-collapse-item__header{
   border: 0;
-  color: #666;
+  color: #fff;
+  background: #0600fe;
   height: auto;
   font-size: 15px;
   line-height: inherit;
 }
 /deep/.el-collapse-item__content{
+  color: #fff;
   padding-top: 10px;
+  background: #0600fe;
+  a{
+    color: #fff;
+  }
 }
 @media (max-width: 768px) {
   .global_nav{

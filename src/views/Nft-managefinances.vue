@@ -115,20 +115,19 @@ const joinFunc = ()=>{
   margin: 0 auto;
   width: 94%;
   padding: 20px;
-  background: #41b83d;
+  border: 1px solid #ffff00;
   border-radius: 20px;
 }
 ._my_rews_txt{
   font-weight: 400;
   font-size: 20px;
-  color: #000;
   line-height: 25px;
   span{
     display: block;
     font-weight: 700;
     font-size: 38px;
     text-align: left;
-    color: #fff;
+    color: #ffff00;
     line-height: 45px;
   }
 }
@@ -141,8 +140,8 @@ const joinFunc = ()=>{
   margin: 10px 0;
   padding: 8px 20px;
   border-radius: 8px;
-  background: #fff;
-  color: #41b83d;
+  background: #ffff00;
+  color: #000096;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s;
@@ -161,12 +160,12 @@ const joinFunc = ()=>{
 .nft_box_item{
   display: flex;
   align-items:center;
-  color: #000;
+  color: #ffff04;
   flex-basis: 48%;
   margin: 10px 0;
   padding: 8px 20px;
   border-radius: 8px;
-  background: #fff;
+  background: #3d3eb3;
   img{
     width: 100px;
   }
@@ -179,14 +178,19 @@ const joinFunc = ()=>{
 }
 /deep/.nft_dialog{
   border-radius: 10px;
-  background-color:#fff;
+  background-color:#020096;
   .el-dialog__title{
     font-size: 35px;
-    color: #4d00ff;
+    color: #fff;
     font-family: eFootball Stencil;
   }
 }
-
+/deep/.el-dialog__body{
+  color: #fff;
+}
+/deep/.el-icon.el-dialog__close{
+  color: #fff;
+}
 .nft_number{
   font-size: 16px;
 }
@@ -194,7 +198,6 @@ const joinFunc = ()=>{
   margin-top: 20px;
   height: 100px;
   cursor: pointer;
-  color: #000;
   text-align: center;
   display: flex;
   align-items: center;
@@ -202,7 +205,7 @@ const joinFunc = ()=>{
   padding: 4px 0;
   border-radius: 4px;
   border: 1px solid #FFFFFF;
-  box-shadow: 0px 0px 0px 1px #3D55CC;
+  box-shadow: 0px 0px 0px 1px #fff;
 }
 .nft_approve{
   margin-top: 20px;

@@ -80,7 +80,7 @@ const refLinks = computed(() => {
         <span class="invitation_txt">{{ $t('invitation') }}：</span>
         <div class="invitation_warp">
           <span class="invitation_input">{{ refLinks }}</span>
-          <el-button color="#626aef" :icon="CopyDocument" plain size="large" type="primary" @click="copyLink">{{ $t('copy') }}</el-button>
+          <el-button class="copy_btn" color="#626aef" :icon="CopyDocument" plain size="large" type="primary" @click="copyLink">{{ $t('copy') }}</el-button>
         </div>
 
       </div>
@@ -286,34 +286,32 @@ const refLinks = computed(() => {
 }
 .invitation_input{
   flex-basis: 70%;
-  border: 1px solid #ffffff;
+  border: 1px solid #ffff04;
   padding: 8px 20px;
   box-shadow: rgb(0 0 0 / 5%) 0px 0px 7px 1px;
   border-radius: 4px;
-  color: #3f3b3b;
-  background: #fff;
+  color: #ffff04;
   cursor: text;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
+
 .copy_btn{
-  flex-basis: 20%;
-  text-align: center;
   cursor: pointer;
   font-size: 1.2857142857rem;
-  line-height: 1;
-  color: #fff;
-  padding: 14px;
+  display: flex;
+  align-items: initial;
+  color: #ffff04;
   box-sizing: border-box;
-  border: 1px solid #fff;
-  background: #3132fe;
+  border: 1px solid #ffff04;
+  background:#fff0;
   border-radius: 8px;
   font-family: eFootball Stencil;
   font-style: normal;
   font-weight: 300;
   &:hover{
-    color: #000;
+    color: #3132fe;
     background: #ffff00;
     border: 1px solid #3132fe;
   }
@@ -325,6 +323,11 @@ const refLinks = computed(() => {
   margin: 0 auto;
   font-size: 20px;
   .box-card{
+    color: #020396;
+    background:#ffff00;
+    span{
+      color: #3132fe;
+    }
     /deep/.el-card__body{
       width: 100%;
       display: flex;
