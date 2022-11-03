@@ -40,5 +40,7 @@
   "swap": "交换",
   "Number": "数量",
   "PleaeSelectNFT": "请选择NFT",
-  "ApproveNFT": "授权NFT"
+  "ApproveNFT": "授权NFT",
+  "PleaseEnterQuantity": "请出入数量",
+  "Confirm": "确定"
 }

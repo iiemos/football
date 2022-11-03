@@ -4,6 +4,7 @@ import Nav from '../components/Nav.vue'
 import { ElMessage } from 'element-plus'
 import { CopyDocument } from '@element-plus/icons-vue'
 
+const mintDialog = ref(false)
 const myAddress = ref(0)
 const copyLink = () =>{
   var _input = document.createElement('input')
@@ -24,20 +25,20 @@ const refLinks = computed(() => {
   }
   return 'Connect Wallet'
 })
+
 </script>
 
 <template>
   <main>
     <Nav />
     <div class="header_banner">
-      <a class="banner_top_ber">
+      <a class="banner_top_ber" href="https://t.me/hashtree" target="_blank">
         <span></span>
       </a>
       <div class="main_area_slider">
-        <a href="#">
-          <!-- <img src="https://img.konami.com/efootball/s/img/main_page_1_sp.png?v=237" alt=""> -->
-          <img src="https://img.konami.com/efootball/s/img/main_page_1.png?v=237" alt="">
-          <span>Mint</span>
+        <a href="javascript:;">
+          <img src="@/assets/img/main_page_1.png?v=237" alt="">
+          <span @click="mintDialog = true">Mint</span>
         </a>
       </div>
     </div>
@@ -167,11 +168,67 @@ const refLinks = computed(() => {
         </div>
       </div>
     </div>
-
+    <el-dialog
+      v-model="mintDialog"
+      title="Mint"
+      width="30%"
+      class="mint_dialog"
+      align-center
+      :close-on-click-modal="false"
+    >
+      <input class="nft_enter_num" :placeholder="$t('PleaseEnterQuantity')" />
+      <div class="nft_mint">{{ $t('Confirm') }}</div>
+    </el-dialog>
   </main>
 </template>
 <style scoped lang="less">
+/deep/.mint_dialog{
+  border-radius: 10px;
+  background: linear-gradient(0deg,#5028f3,#7756ff,#43a9ff);
+  .el-dialog__title{
+    font-size: 35px;
+    color: #fff;
+    font-family: eFootball Stencil;
+  }
+}
+/deep/.el-dialog__body{
+  color: #fff;
+}
+/deep/.el-icon.el-dialog__close{
+  color: #fff;
+}
+.nft_enter_num{
+  width: 100%;
+  padding: 10px 10px;
+  color: #333;
+  border-radius: 4px;
+  text-align: center;
+  background: #fff;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  text-indent: inherit;
+  text-transform: inherit;
+  text-shadow: inherit;
+  text-align: center;
+}
+.nft_mint{
+  margin-top: 20px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 4px;
+  background: linear-gradient(270deg,#5028f3,#7756ff,#43a9ff);
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 0px 0px 1px #3D55CC;
+}
 .banner_top_ber{
+  cursor: pointer;
   display: block;
   background-color: #9600f5;
   span{
@@ -522,6 +579,9 @@ const refLinks = computed(() => {
   }
   .home_contents .el-carousel__container{
     height:130px !important;
+  }
+  .mint_dialog{
+    width: 94%;
   }
 }
 

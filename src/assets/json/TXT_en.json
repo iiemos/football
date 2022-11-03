@@ -40,5 +40,7 @@
   "swap": "Swap",
   "Number": "Number",
   "PleaeSelectNFT": "Pleae Select NFT",
-  "ApproveNFT": "Approve NFT"
+  "ApproveNFT": "Approve NFT",
+  "PleaseEnterQuantity": "Please Enter Quantity",
+  "Confirm": "Confirm"
 }
