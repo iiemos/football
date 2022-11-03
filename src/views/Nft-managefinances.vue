@@ -178,7 +178,7 @@ const joinFunc = ()=>{
 }
 /deep/.nft_dialog{
   border-radius: 10px;
-  background: linear-gradient(0deg,#5028f3,#7756ff,#43a9ff);
+  background: #5028f3;
   .el-dialog__title{
     font-size: 35px;
     color: #fff;
